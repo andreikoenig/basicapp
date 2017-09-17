@@ -25,4 +25,10 @@ class MessagesController extends Controller
        // Redirect back to home page
        return redirect('/')->with('success', 'Message Sent');
     }
+
+    public function getMessages() {
+      $messages = Message::all(); // eloquent
+
+      return view('messages')->with('messages', $messages);
+    }
 }
